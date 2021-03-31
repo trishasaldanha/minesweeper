@@ -5,14 +5,14 @@
         <meta http-equiv="X-UA-Compatible">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Minesweeper</title>
-
+        <link rel="stylesheet" href="./css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
         <script src="./js/script.js"></script>
     </head>
     
     <body ng-app="minesweeperApp">
         <div ng-controller="minesweeperController">
-            <table>
+            <table class="minefield">
                 <tr ng-repeat="row in minefield.rows">
                     <td ng-repeat="spot in row.spots" ng-click="spot.isCovered = false">
                         <img ng-if="spot.isCovered" src="./images/covered.png">
