@@ -10,6 +10,7 @@ function createMinefield() {
             let spot = {};
             spot.isCovered = true;
             spot.content = "empty";
+            spot.isFlagged = false; //added new property to track if the user has flagged this spot as a possible mine
             row.spots.push(spot);
         }
         minefield.rows.push(row);
@@ -35,7 +36,26 @@ const minesweeperController = function($scope) {
             }
         }
     }
+    //function added to flag spots the user has guessed
+    $scope.flagSpot = function(spot) {
+        spot.isFlagged = true;
+        console.log(spot.isFlagged, spot.isCovered);
+    }
 }
+
+
+//Possible to be used to create my own angular directive
+// minesweeperModule.directive('ng-rightClick', function($parse) {
+//     return function(scope, element, attrs) {
+//         var fn = $parse(attrs.ngRightClick);
+//         element.bind('contextmenu', function(event) {
+//             scope.$apply(function() {
+//                 event.preventDefault();
+//                 fn(scope, {$event:event});
+//             });
+//         });
+//     };
+// });
 
 minesweeperModule.controller("minesweeperController", minesweeperController);
 

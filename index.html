@@ -15,8 +15,9 @@
             <center>
                 <table class="minefield">
                     <tr ng-repeat="row in minefield.rows">
-                        <td ng-repeat="spot in row.spots" ng-click="uncoverSpot(spot)">
+                        <td ng-repeat="spot in row.spots" ng-click="uncoverSpot(spot)" ng-rightClick="flagSpot(spot)"> <!--added oncontextmenu event handler calling the new function from script.js-->
                             <img ng-if="spot.isCovered" src="./images/covered.png">
+                            <img ng-if="spot.isCovered && spot.isFlagged" src="images/flag-suspect.png"> <!--added condition if spot is uncovered and flagged, the flag image will show-->
                             <img ng-if="!spot.isCovered && spot.content == 'empty'" src="./images/empty.png">
                             <img ng-if="!spot.isCovered && spot.content == 'mine'" src="./images/mine.png">
                             <img ng-if="!spot.isCovered && spot.content == 1" src="./images/number-1.png">
