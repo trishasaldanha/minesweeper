@@ -134,7 +134,7 @@ function calculateNumber(minefield, row, column) {
                 }
             }
         }
-        
+
     if (mineCount > 0) {
         thisSpot.content = mineCount;
     }
